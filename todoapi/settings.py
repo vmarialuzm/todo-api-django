@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tasks.apps.TasksConfig',
     'authapp.apps.AuthappConfig',
     'tasks_viewset.apps.TasksViewsetConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Lima'
 
 USE_I18N = True
 
