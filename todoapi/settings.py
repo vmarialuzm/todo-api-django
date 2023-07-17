@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'authapp.apps.AuthappConfig',
     'tasks_viewset.apps.TasksViewsetConfig',
     'users.apps.UsersConfig',
+    'versioned_todo.apps.VersionedTodoConfig',
 ]
 
 MIDDLEWARE = [

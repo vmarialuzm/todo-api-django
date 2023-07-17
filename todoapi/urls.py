@@ -9,4 +9,6 @@ urlpatterns = [
     path(r'api/v1/', include("tasks.urls")),
     path(r'api/v1/', include("users.urls")),
     path(r'api-auth/', include("authapp.urls")),
+    path('v3/', include("versioned_todo.v3.urls")),
+    path('v4/', include("versioned_todo.v4.urls")),
 ]
