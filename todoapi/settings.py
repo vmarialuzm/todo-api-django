@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework',
     'rest_framework_simplejwt',
+    'django_twilio',
     'tasks.apps.TasksConfig',
     'authapp.apps.AuthappConfig',
     'tasks_viewset.apps.TasksViewsetConfig',
@@ -143,11 +144,21 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
         'rest_framework_simplejwt.authentication.JWTAuthentication'     
     ],
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 20,
     "DEFAULT_FILTER_BACKENDS": [
         'django_filters.rest_framework.DjangoFilterBackend'
-    ]      
+    ],
+    "DEFAULT_THROTTLE_CLASSES": [
+        'rest_framework.throttling.AnonRateThrottle',  #usuarios anónimos
+        'rest_framework.throttling.UserRateThrottle',  #usuarios logueados
+        'rest_framework.throttling.ScopedRateThrottle'
+    ],
+    "DEFAULT_THROTTLE_RATES": {
+        'anon': '1000/day',
+        'user': '1000/day',
+        'generate_code': '1/minute' 
+    }      
 }
 
 SIMPLE_JWT = {
