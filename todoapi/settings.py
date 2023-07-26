@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'drf_yasg',
+    'drf_spectacular',
     'corsheaders',
     'django_seed',
     'django_filters',
@@ -158,7 +160,8 @@ REST_FRAMEWORK = {
         'anon': '1000/day',
         'user': '1000/day',
         'generate_code': '1/minute' 
-    }      
+    },
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',      
 }
 
 SIMPLE_JWT = {
@@ -169,3 +172,11 @@ SIMPLE_JWT = {
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:5500',
 ]
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}

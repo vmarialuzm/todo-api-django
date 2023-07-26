@@ -5,3 +5,4 @@ class TodoSerializer(ModelSerializer):
     class Meta:
       model = Todo
       fields = "__all__"
+      ref_name = 'TodoSerializer'
